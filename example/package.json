@@ -9,7 +9,6 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-map-gl": "5.2.3",
-    "react-map-gl-geocoder": "file:../",
     "react-scripts": "^3.4.3"
   },
   "scripts": {
@@ -27,5 +26,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "react-map-gl-geocoder": "file:.."
   }
 }
