@@ -1,8 +1,6 @@
 import { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
-import { FlyToInterpolator } from 'react-map-gl'
-import WebMercatorViewport from 'viewport-mercator-project'
 import mapboxgl from 'mapbox-gl'
 
 const VALID_POSITIONS = ['top-left', 'top-right', 'bottom-left', 'bottom-right']
@@ -171,7 +169,10 @@ class Geocoder extends PureComponent {
 
   handleResult = (event) => {
     const { result } = event
-    const { onViewportChange, onResult } = this.props
+    const {
+      // onViewportChange,
+      onResult
+    } = this.props
     const { bbox, center, properties = {} } = result
     const { short_code } = properties
     const [longitude, latitude] = center
@@ -239,7 +240,7 @@ class Geocoder extends PureComponent {
   static propTypes = {
     mapRef: PropTypes.object.isRequired,
     containerRef: PropTypes.object,
-    onViewportChange: PropTypes.func,
+    // onViewportChange: PropTypes.func,
     mapboxApiAccessToken: PropTypes.string.isRequired,
     inputValue: PropTypes.string,
     origin: PropTypes.string,
@@ -274,7 +275,7 @@ class Geocoder extends PureComponent {
   }
 
   static defaultProps = {
-    onViewportChange: () => {},
+    // onViewportChange: () => {},
     origin: 'https://api.mapbox.com',
     zoom: 16,
     placeholder: 'Search',
